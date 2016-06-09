@@ -1,27 +1,17 @@
-info:
-  component: Zuul Server
-endpoints:
-  restart:
-    enabled: true
-  shutdown:
-    enabled: true
-  health:
-    sensitive: false
 zuul:
   routes:
     rest-microservices-customers:
       path: /api/custemers/**
+      url: http://localhost:8765/api
       serviceId: rest-microservices-customers
     rest-microservices-store:
       path: /api/store/**
+      url: http://localhost:8765/api
       serviceId: rest-microservices-store
+ribbon:
+  eureka:
+    enabled: false
 logging:
   level:
     ROOT: INFO
     org.springframework.web: DEBUG
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8081/eureka/
-    region: default
-    preferSameZone: false
