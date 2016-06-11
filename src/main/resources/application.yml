@@ -1,17 +1,5 @@
-zuul:
-  routes:
-    rest-microservices-customers:
-      path: /api/custemers/**
-      url: http://localhost:8765/api
-      serviceId: rest-microservices-customers
-    rest-microservices-store:
-      path: /api/store/**
-      url: http://localhost:8765/api
-      serviceId: rest-microservices-store
-ribbon:
-  eureka:
-    enabled: false
 logging:
   level:
-    ROOT: INFO
-    org.springframework.web: DEBUG
+    org:
+      springframework:
+        security: DEBUG
