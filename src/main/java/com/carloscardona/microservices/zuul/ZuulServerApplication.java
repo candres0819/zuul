@@ -1,9 +1,12 @@
 package com.carloscardona.microservices.zuul;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * /** The Main Spring Boot Application class which does the following
@@ -29,9 +32,12 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
  * @author candr
  *
  */
+@Configuration
+@ComponentScan
+@EnableAutoConfiguration
 @EnableZuulProxy
 @EnableEurekaClient
-@SpringBootApplication
+@EnableOAuth2Sso
 public class ZuulServerApplication {
 
 	public static void main(String[] args) {
